@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:bird_instagram/posts_list.dart';
 import 'package:bird_instagram/main.dart';
+import 'package:bird_instagram/post_item.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
@@ -28,14 +29,24 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 
+  //PostItem
+  testWidgets('Renders a post', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MaterialApp(
+      home: PostItem(),
+    ));
 
+    expect(find.byType(Card), findsOneWidget);
+    expect(find.text('Prim Birb'), findsOneWidget);
+  });
+
+  //Post_List
   testWidgets('Renders list of posts', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MaterialApp(
       home: PostsList(),
     ));
 
-    expect(find.byType(Card), findsNWidgets(2));
-    expect(find.text('Prim Birb'), findsNWidgets(2));
+    expect(find.byType(PostItem), findsNWidgets(2));
   });
 }
