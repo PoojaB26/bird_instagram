@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:bird_instagram/no_content.dart';
+import 'package:bird_instagram/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,9 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(),
-        body: NoContent()),
+      home: HomePage(),
     );
   }
 }
